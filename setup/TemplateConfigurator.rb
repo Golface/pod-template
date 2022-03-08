@@ -70,13 +70,13 @@ module Pod
     def run
       @message_bank.welcome_message
 
-      platform = "iOS".to_sym
+      platform = "ios".to_sym
 
       case platform
         when :macos
           ConfigureMacOSSwift.perform(configurator: self)
         when :ios
-          framework = "Swift".to_sym
+          framework = "swift".to_sym
           case framework
             when :swift
               ConfigureSwift.perform(configurator: self)
