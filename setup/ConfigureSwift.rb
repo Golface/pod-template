@@ -25,7 +25,7 @@ module Pod
           configurator.set_test_framework "xctest", "swift", "swift"
       end
 
-      snapshots = configurator.ask_with_answers("Would you like to do view based testing", ["Yes", "No"]).to_sym
+      snapshots = "no".to_sym
       case snapshots
         when :yes
           configurator.add_pod_to_podfile "FBSnapshotTestCase' , '~> 2.1.4"
