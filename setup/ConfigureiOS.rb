@@ -12,45 +12,7 @@ module Pod
     end
 
     def perform
-
-      keep_demo = "Yes".to_sym
-      framework = "None".to_sym
-      case framework
-        when :specta
-          configurator.add_pod_to_podfile "Specta"
-          configurator.add_pod_to_podfile "Expecta"
-
-          configurator.add_line_to_pch "@import Specta;"
-          configurator.add_line_to_pch "@import Expecta;"
-
-          configurator.set_test_framework("specta", "m", "ios")
-
-        when :kiwi
-          configurator.add_pod_to_podfile "Kiwi"
-          configurator.add_line_to_pch "@import Kiwi;"
-          configurator.set_test_framework("kiwi", "m", "ios")
-
-        when :none
-          configurator.set_test_framework("xctest", "m", "ios")
-      end
-
-      snapshots = "No".to_sym
-      case snapshots
-        when :yes
-          configurator.add_pod_to_podfile "FBSnapshotTestCase"
-          configurator.add_line_to_pch "@import FBSnapshotTestCase;"
-
-          if keep_demo == :no
-              puts " Putting demo application back in, you cannot do view tests without a host application."
-              keep_demo = :yes
-          end
-
-          if framework == :specta
-              configurator.add_pod_to_podfile "Expecta+Snapshots"
-              configurator.add_line_to_pch "@import Expecta_Snapshots;"
-          end
-      end
-
+      keep_demo = "yes".to_sym
       prefix = nil
 
       loop do
