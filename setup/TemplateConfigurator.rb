@@ -70,13 +70,13 @@ module Pod
     def run
       @message_bank.welcome_message
 
-      platform = self.ask_with_answers("What platform do you want to use?", ["iOS", "macOS"]).to_sym
+      platform = "iOS".to_sym
 
       case platform
         when :macos
           ConfigureMacOSSwift.perform(configurator: self)
         when :ios
-          framework = self.ask_with_answers("What language do you want to use?", ["Swift", "ObjC"]).to_sym
+          framework = "Swift".to_sym
           case framework
             when :swift
               ConfigureSwift.perform(configurator: self)
@@ -183,8 +183,6 @@ module Pod
 
     def reinitialize_git_repo
       `rm -rf .git`
-      `git init`
-      `git add -A`
     end
 
     def validate_user_details
