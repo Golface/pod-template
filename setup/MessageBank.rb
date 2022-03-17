@@ -57,17 +57,7 @@ module Pod
 
       puts ""
     end
-
-    def farewell_message
-      puts ""
-
-      puts " Ace! you're ready to go!"
-      puts " We will start you off by opening your project in Xcode"
-      pod_name = @configurator.pod_name
-      run_command "open 'Example/#{pod_name}.xcworkspace'", "open '#{pod_name}/Example/#{pod_name}.xcworkspace'"
-    end
-
-
+    
     def run_setup_questions
 
       puts yellow_bang + "Before you can create a new library we need to setup your git credentials."

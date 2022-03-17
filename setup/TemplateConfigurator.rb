@@ -94,24 +94,12 @@ module Pod
       rename_classes_folder
       ensure_carthage_compatibility
       reinitialize_git_repo
-      run_pod_install
-
-      @message_bank.farewell_message
     end
 
     #----------------------------------------#
 
     def ensure_carthage_compatibility
       FileUtils.ln_s('Example/Pods/Pods.xcodeproj', '_Pods.xcodeproj')
-    end
-
-    def run_pod_install
-      puts "\nRunning " + "pod install".magenta + " on your new library."
-      puts ""
-
-      Dir.chdir("Example") do
-        system "pod install"
-      end
     end
 
     def clean_template_files
