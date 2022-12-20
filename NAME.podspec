@@ -19,7 +19,7 @@ TODO: Add long description of the pod here.
   s.author           = { '${USER_NAME}' => '${USER_EMAIL}' }
   s.source           = { :git => 'https://github.com/${USER_NAME}/${POD_NAME}.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '14.0'
   s.source_files = '${POD_NAME}/${POD_NAME}/Classes/**/*'
 
 end
